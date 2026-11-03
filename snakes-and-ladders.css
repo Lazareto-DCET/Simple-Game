@@ -1,0 +1,263 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #090b18; --panel: #11162b; --cyan: #00ffea; --green: #39ff14;
+  --purple: #ff00ff; --blue: #00cfff; --text: #eefaff;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Orbitron, "Segoe UI", sans-serif;
+
+  /* Background image with a dark overlay */
+  background:
+    linear-gradient(
+      rgba(9, 11, 24, 0.68),
+      rgba(9, 11, 24, 0.82)
+    ),
+    url("neon.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.site-header { 
+  text-align: center; 
+  padding: 22px 16px 8px; 
+}
+
+h1 { 
+  margin: 0 0 16px; 
+  color: var(--cyan); 
+  text-shadow: 0 0 8px #00ffea88, 0 0 22px #00ffea55; 
+
+}
+
+nav { 
+  margin: 12px 0 6px;
+}
+
+.neon-button, button {
+  display: inline-block; color: var(--text); background: #101a30;
+  border: 1px solid var(--cyan); border-radius: 10px; padding: 11px 16px;
+  font: inherit; text-decoration: none; cursor: pointer;
+  box-shadow: 0 0 10px #00ffea22; transition: transform .15s, box-shadow .15s;
+}
+
+.neon-button:hover, button:hover:not(:disabled) { 
+  transform: translateY(-2px); box-shadow: 0 0 15px #00ffea66; 
+}
+
+button:disabled { 
+  opacity: .55; cursor: wait; 
+}
+
+.game-layout {
+  width: min(1200px, 100%); margin: 18px auto 30px; padding: 0 18px;
+  display: grid; grid-template-columns: 230px minmax(0, 600px); gap: 24px;
+  justify-content: center; align-items: start;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 16px;
+
+  border: 1px solid #00ffea66;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(21, 27, 52, 0.88),
+    rgba(11, 16, 34, 0.88)
+  );
+
+  box-shadow:
+    0 0 22px #00ffea12,
+    inset 0 0 18px #a000ff08;
+}
+
+.player-card {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  padding: 10px;
+  border: 1px solid #ffffff1a; 
+  border-radius: 10px; 
+  background: #080d1c;
+}
+
+.player-card strong, .player-card small { 
+  display: block; 
+}
+
+.player-card small { 
+  margin-top: 4px; 
+  color: #a8bdd0; 
+}
+
+.player-one .player-dot { 
+  color: var(--purple); 
+  text-shadow: 0 0 10px var(--purple); 
+}
+
+.player-two .player-dot { 
+  color: var(--blue); 
+  text-shadow: 0 0 10px var(--blue); 
+}
+
+#diceImage { 
+  align-self: center; 
+  object-fit: contain; 
+  filter: drop-shadow(0 0 8px #00ffea55); 
+  margin: 4px 0; 
+}
+
+#currentPlayerDisplay { 
+  text-align: center; 
+  color: var(--cyan); 
+  margin: 3px 0; 
+}
+
+#diceValue { 
+  text-align: center; 
+  font-weight: 700; 
+  margin: 0; 
+}
+
+.game-message { 
+  min-height: 40px; 
+  text-align: center; 
+  color: #c4d4ff; 
+  font-size: .9rem; 
+  margin: 0; 
+}
+
+.secondary-button { 
+  border-color: #a66cff; 
+}
+
+.legend { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 8px; 
+  font-size: .75rem; 
+  color: #c9d6e8; 
+}
+
+.legend span { 
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+}
+
+.legend i { 
+  width: 11px; 
+  height: 11px; 
+  border-radius: 3px; 
+  display: inline-block; 
+}
+
+.legend-start { 
+  background: #39ff14; 
+} 
+.legend-finish { 
+  background: #ffca3a; 
+}
+
+.legend-snake { 
+  background: #b65cff; 
+} 
+.legend-ladder { 
+  background: #ff9f1c; 
+}
+
+.board-wrap { 
+  width: 100%; 
+  max-width: 600px; 
+}
+
+
+#gameBoard {
+  display: block; width: 100%; height: auto; border-radius: 12px;
+  border: 1px solid #00ffea; box-shadow: 0 0 22px #00ffea24, 0 0 45px #a000ff10;
+}
+footer { 
+  text-align: center; 
+  color: #7788a8; 
+  font-size: .8rem; 
+  padding: 8px 12px 22px; 
+}
+
+
+/* Neon dice rolling effect */
+#diceImage.dice-rolling {
+  animation: neonDiceRoll 0.12s infinite alternate;
+  filter:
+    drop-shadow(0 0 6px #00f7ff)
+    drop-shadow(0 0 14px #a855f7);
+  will-change: transform;
+}
+
+/* Shake, tilt, and scale while rolling */
+@keyframes neonDiceRoll {
+  0% {
+    transform: translate(-3px, 2px) rotate(-12deg) scale(1.04);
+  }
+
+  25% {
+    transform: translate(3px, -2px) rotate(10deg) scale(1.10);
+  }
+
+  50% {
+    transform: translate(-2px, -3px) rotate(-8deg) scale(1.06);
+  }
+
+  75% {
+    transform: translate(2px, 3px) rotate(12deg) scale(1.10);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1.04);
+  }
+}
+
+/* Smoothly reveal the final dice result */
+#diceImage.dice-result {
+  animation: diceResultReveal 0.4s ease-out;
+  filter:
+    drop-shadow(0 0 8px #00f7ff)
+    drop-shadow(0 0 18px #a855f7);
+}
+
+@keyframes diceResultReveal {
+  0% {
+    transform: scale(0.65) rotate(-20deg);
+    opacity: 0.6;
+  }
+
+  65% {
+    transform: scale(1.18) rotate(8deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .game-layout { grid-template-columns: minmax(0, 600px); }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; }
+  .controls #diceImage, .controls #rollButton, .controls .secondary-button,
+  .controls #currentPlayerDisplay, .controls #diceValue, .controls .game-message,
+  .controls .legend { grid-column: 1 / -1; }
+  .player-card { min-width: 0; }
+}

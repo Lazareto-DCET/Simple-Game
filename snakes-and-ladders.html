@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snakes and Ladders</title>
+  <link rel="stylesheet" href="snakes-and-ladders.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>🐍 Snakes and Ladders 🎲</h1>
+    <nav><a href="index.html" class="neon-button">↩ Back to HomePage</a></nav>
+  </header>
+
+  <main class="game-layout">
+    <section class="controls panel">
+      <div class="player-card player-one">
+        <span class="player-dot">●</span>
+        <div><strong id="playerOneName">Player 1</strong><small id="playerOnePosition">Tile 1</small></div>
+      </div>
+      <div class="player-card player-two">
+        <span class="player-dot">●</span>
+        <div><strong id="playerTwoName">Player 2</strong><small id="playerTwoPosition">Tile 1</small></div>
+      </div>
+
+      <img id="diceImage" src="images/dice1.png" width="84" height="84" alt="Dice showing one">
+      <button id="rollButton" type="button" onclick="rollDice()">🎲 Roll Dice</button>
+      <button class="secondary-button" type="button" onclick="resetGame()">🔄 Reset Game</button>
+      <p id="currentPlayerDisplay" aria-live="polite">Current Player: Player 1 🔴</p>
+      <p id="diceValue" aria-live="polite">Roll the dice to begin!</p>
+      <p id="gameMessage" class="game-message" aria-live="polite">Climb ladders, avoid snakes, and reach 100!</p>
+      <div class="legend">
+        <span><i class="legend-start"></i> Start</span>
+        <span><i class="legend-finish"></i> Finish</span>
+        <span><i class="legend-snake"></i> Snake</span>
+        <span><i class="legend-ladder"></i> Ladder</span>
+      </div>
+    </section>
+
+    <section class="board-wrap" aria-label="Snakes and Ladders game board">
+      <canvas id="gameBoard" width="600" height="600" aria-label="10 by 10 Snakes and Ladders board"></canvas>
+    </section>
+  </main>
+
+  <footer><p>© 2026 Lazareto | All Rights Reserved</p></footer>
+
+  <audio id="diceRollSound" src="audio/dice-roll.mp3" preload="auto" loop></audio>
+  <audio id="snakeSound" src="audio/snake.mp3" preload="auto"></audio>
+  <audio id="ladderSound" src="audio/ladder.mp3" preload="auto"></audio>
+  <audio id="winSound" src="audio/win.mp3" preload="auto"></audio>
+
+  <script src="snakes-and-ladders.js"></script>
+</body>
+</html>

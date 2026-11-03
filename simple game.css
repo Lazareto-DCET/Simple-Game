@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #f0f4f8, #d9e4f5);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 20 px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    background-image: url('4249454.jpg'); /* Replace with your image path */
+    background-size: cover;           /* Cover full screen */
+    background-repeat: no-repeat;     /* No repeating */
+    background-position: center center; /* Center the image */
+    background-attachment: fixed;     /* Optional: fixed scrolling */ 
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #4a90e2;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #4a90e2;
+}
+
+button {
+    background-color:#4a90e2;
+    color: white;
+    padding: 10px 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.game-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#ticTacToe {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.grid button {
+    width: 100px;
+    height: 100px;
+    font-size: 48px;;
+    font-weight: bold;
+    background-color: #fff;
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popIn 0.3s forwards;
+    animation-delay: var(--delay);
+}
+
+.grid button:nth-child(1) { --delay: 0.05s; }
+.grid button:nth-child(2) { --delay: 0.1s; }
+.grid button:nth-child(3) { --delay: 0.15s; }
+.grid button:nth-child(4) { --delay: 0.2s; }
+.grid button:nth-child(5) { --delay: 0.25s; }
+.grid button:nth-child(6) { --delay: 0.3s; }
+.grid button:nth-child(7) { --delay: 0.35s; }
+.grid button:nth-child(8) { --delay: 0.4s; }
+.grid button:nth-child(9) { --delay: 0.45s; }
+
+.grid button:after {
+    content: attr(data-value);
+    opacity: 0;
+    transform: scale(0.5);
+    display: inline-block;
+    animation: textPop 0.3s forwards;
+}
+
+.grid button:hover {
+    background-color: #e6f0fb;
+}
+
+.grid button:active {
+    transform: scale(0.95);
+}
+
+#ticTacToe > button {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#ticTacToe > button:hover {
+    background-color: #357ab7;
+}
+
+#rockPaperScissors {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #4a90e2;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#rockPaperScissors button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+#rockPaperScissors button:hover {
+    background-color: #357ab7;
+    transform: scale(1.1);
+}
+
+#rpsResult {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#guessNumber {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #4a90e2;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#guessNumber input {
+    padding: 10px;
+    width: 70%;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+#guessNumber input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+#guessNumber button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+#guessNumber button:hover {
+    background-color: #357ab7;
+    transform: scale(1.05);
+}
+
+#guessResult {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#coinToss, #diceRoll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#mathQuiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+#coinToss img, #diceRoll img {
+    margin: 15px 0;
+}
+
+#mathQuiz input {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+}
+
+.quiz-buttons button {
+    margin: 5px;
+}
+
+#rpsResult, #guessResult, #coinResult, #diceResult {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+#mathResult {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#mathScore {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #333;
+}
+
+
+#coinImage, #diceImage {
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+}
+
+#coinImage:hover, #diceImage:hover {
+    transform: rotate(20deg) scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textPop {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popResult {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes iconPop {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+

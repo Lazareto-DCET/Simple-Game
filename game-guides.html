@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Games</title>
+  <link rel="stylesheet" href="simple game.css" />
+</head>
+<body>
+  <header>
+    <h1>TriGame</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="snakes-and-ladders.html">Snakes and Ladders</a></li>
+        <li><a href="game-guides.html">Simple Games</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="games">
+    <h2>Simple games</h2>
+
+    <!-- Tic-Tac-Toe -->
+    <h3>Tic-Tac-Toe</h3>
+    <div class="game-card" id="ticTacToe">
+      <div class="grid">
+        <button onclick="makeMove(0)"></button>
+        <button onclick="makeMove(1)"></button>
+        <button onclick="makeMove(2)"></button>
+        <button onclick="makeMove(3)"></button>
+        <button onclick="makeMove(4)"></button>
+        <button onclick="makeMove(5)"></button>
+        <button onclick="makeMove(6)"></button>
+        <button onclick="makeMove(7)"></button>
+        <button onclick="makeMove(8)"></button>
+      </div>
+      <button onclick="resetGame()">🔁 Reset Game</button>
+    </div>
+
+    <!-- Rock, Paper, Scissors -->
+    <h3>Rock, Paper, Scissors</h3>
+    <div class="game-card" id="rockPaperScissors">
+      <button onclick="playRPS('rock')">✊ Rock</button>
+      <button onclick="playRPS('paper')">✋ Paper</button>
+      <button onclick="playRPS('scissors')">✌ Scissors</button>
+      <p id="rpsResult"></p>
+    </div>
+
+    <!-- Guess the Number -->
+    <h3>🎯 Guess the Number</h3>
+    <div class="game-card" id="guessNumber">
+      <input type="number" id="guessInput" placeholder="🎯 Enter your guess..." />
+      <button onclick="checkGuess()">Submit Guess</button>
+      <p id="guessResult"></p>
+    </div>
+
+    <!-- Coin Toss -->
+    <h3>🪙 Coin Toss</h3>
+    <div class="game-card" id="coinToss">
+      <button onclick="tossCoin()">Toss the Coin</button><br><br>
+      <img id="coinImage" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Penny_obverse_2010.jpg" alt="Coin" width="100">
+      <p id="coinResult"></p>
+    </div>
+
+    <!-- Dice Roll -->
+    <h3>🎲 Dice Roll</h3>
+    <div class="game-card" id="diceRoll">
+      <button onclick="rollDice()">Roll the Dice</button><br><br>
+      <img id="diceImage" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Dice-1-b.svg" alt="Dice" width="100">
+      <p id="diceResult"></p>
+    </div>
+
+    <!-- Math Quiz -->
+    <h3>🧠 Quick Math Quiz</h3>
+    <div id="mathQuiz" class="game-card">
+      <p id="mathQuestion"></p>
+      <input type="number" id="mathAnswer" placeholder="Your answer...">
+      <div class="quiz-buttons">
+        <button onclick="submitAnswer()">Submit</button>
+        <button onclick="nextQuestion()" style="display:none;" id="nextBtn">Next</button>
+        <button onclick="resetQuiz()">🔁 Reset</button>
+      </div>
+      <p id="mathResult"></p>
+      <p id="mathScore"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Lazareto | All Rights Reserved</p>
+  </footer>
+
+  <script src="simple game.js"></script>
+</body>
+</html>
